@@ -1,0 +1,26 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2,1fr);
+  grid-template-areas: "testimonial-1 testimonial-1 testimonial-2 testimonial-5"
+                        "testimonial-3 testimonial-4 testimonial-4 testimonial-5";
+  grid-gap: 2rem;
+
+  width: 90%;
+  max-width: 1440px;
+  @media (max-width: 990px) {
+    display: block;
+  }
+}
+
+@for $i from 1 through 5 {
+  .testimonial-#{$i} {
+    grid-area: testimonial-#{$i};
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 12px 2px hsla(217, 19%, 35%, .4);
+    @media (max-width: 990px) {
+      margin: 3rem 0;
+    }
+  }
+}
