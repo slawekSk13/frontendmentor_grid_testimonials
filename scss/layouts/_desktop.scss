@@ -1,0 +1,82 @@
+@use "sass:list";
+
+body {
+  background-color: $neutralSecondaryColor;
+  font-family: $primaryFont;
+}
+
+section {
+  height: 98vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attribution {
+  color: list.nth($backgroundColors, 2);
+  display: flex;
+  justify-content: center;
+  @include opacity(40%);
+  a {
+    color: list.nth($backgroundColors, 2);
+    text-decoration: none;
+  }
+}
+
+.light {
+  background-color: $white;
+  color: list.nth($backgroundColors, 3);
+  img {
+    border: 2px solid hsla(219, 29%, 14%, .5);
+  }
+}
+
+@for $i from 1 through 3 {
+  .dark-#{$i} {
+    color: $white;
+    background-color: list.nth($backgroundColors, $i);
+    img {
+      border: 2px solid hsl(263, 55%, 52%);
+    }
+  }
+}
+
+.dark-1 {
+  background-image: url("../images/bg-pattern-quotation.svg");
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-origin: content-box;
+  img {
+    border: 2px solid hsla(0, 0%, 100%, .5);
+  }
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+}
+
+img {
+  border-radius: 50%;
+  width: 45px;
+  margin-right: 2rem;
+}
+
+.testimonial-header-title {
+  font-weight: $bold;
+}
+
+.verified {
+  @include opacity(70%);
+}
+
+.testimonial-big {
+  font-size: 1.7rem;
+  line-height: 2.2rem;
+  margin: 2rem 0;
+}
+
+.testimonial-small {
+  @include opacity(50%);
+  line-height: 1.4rem;
+}
